@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-class DeviseCreateGenres < ActiveRecord::Migration[6.1]
+class CreateAddresses < ActiveRecord::Migration[6.1]
   def change
-    create_table :genres do |t|
+    create_table :addresses do |t|
       ## Database authenticatable
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
@@ -36,9 +36,9 @@ class DeviseCreateGenres < ActiveRecord::Migration[6.1]
       t.timestamps null: false
     end
 
-    add_index :genres, :email,                unique: true
-    add_index :genres, :reset_password_token, unique: true
-    # add_index :genres, :confirmation_token,   unique: true
-    # add_index :genres, :unlock_token,         unique: true
+    add_index :addresses, :email,                unique: true
+    add_index :addresses, :reset_password_token, unique: true
+    # add_index :addresses, :confirmation_token,   unique: true
+    # add_index :addresses, :unlock_token,         unique: true
   end
 end

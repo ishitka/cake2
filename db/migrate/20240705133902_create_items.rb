@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-class DeviseCreateOrderItems < ActiveRecord::Migration[6.1]
+class CreateItems < ActiveRecord::Migration[6.1]
   def change
-    create_table :order_items do |t|
+    create_table :items do |t|
       ## Database authenticatable
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
@@ -13,6 +13,10 @@ class DeviseCreateOrderItems < ActiveRecord::Migration[6.1]
 
       ## Rememberable
       t.datetime :remember_created_at
+      t.string :name, null: false
+      t.text :introduction, null: false
+      t.integer :price, null: false
+      t.boolean :is_status, null: false
 
       ## Trackable
       # t.integer  :sign_in_count, default: 0, null: false
@@ -36,9 +40,9 @@ class DeviseCreateOrderItems < ActiveRecord::Migration[6.1]
       t.timestamps null: false
     end
 
-    add_index :order_items, :email,                unique: true
-    add_index :order_items, :reset_password_token, unique: true
-    # add_index :order_items, :confirmation_token,   unique: true
-    # add_index :order_items, :unlock_token,         unique: true
+    add_index :items, :email,                unique: true
+    add_index :items, :reset_password_token, unique: true
+    # add_index :items, :confirmation_token,   unique: true
+    # add_index :items, :unlock_token,         unique: true
   end
 end

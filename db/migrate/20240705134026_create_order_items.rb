@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-class DeviseCreateCartItems < ActiveRecord::Migration[6.1]
+class CreateOrderItems < ActiveRecord::Migration[6.1]
   def change
-    create_table :cart_items do |t|
+    create_table :order_items do |t|
       ## Database authenticatable
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
@@ -36,9 +36,9 @@ class DeviseCreateCartItems < ActiveRecord::Migration[6.1]
       t.timestamps null: false
     end
 
-    add_index :cart_items, :email,                unique: true
-    add_index :cart_items, :reset_password_token, unique: true
-    # add_index :cart_items, :confirmation_token,   unique: true
-    # add_index :cart_items, :unlock_token,         unique: true
+    add_index :order_items, :email,                unique: true
+    add_index :order_items, :reset_password_token, unique: true
+    # add_index :order_items, :confirmation_token,   unique: true
+    # add_index :order_items, :unlock_token,         unique: true
   end
 end
