@@ -5,14 +5,19 @@ class Public::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_account_update_params, only: [:update]
 
   # GET /resource/sign_up
-  # def new
-  #   super
-  # end
+   def new
+     super
+   end
 
   # POST /resource
-  # def create
-  #   super
-  # end
+  def create
+     @customer = Customer.new(customer_params)
+     if  @customer.save
+       redirect_to customer_path(@customer.id)
+     else
+       redirect_to new_customer_session_path
+     end
+   end
 
   # GET /resource/edit
   # def edit
@@ -44,6 +49,16 @@ class Public::RegistrationsController < Devise::RegistrationsController
    def configure_sign_up_params
      devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
    end
+   
+   def after_sign_up_path_for(resouce)
+     customer_path(current_customer.id)
+   end
+   
+   private
+
+  def customer_params
+    params.require(:customer).permit(:first_name, :last_name, :first_name_kana, :last_name_kane, :postal_code, :address, :telephone_number, :email, :password, :password_confirmation)
+  end
 
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_account_update_params
