@@ -1,0 +1,9 @@
+<h3>商品詳細</h3>
+<%= image_tag @item.image, size: "100×100" %>
+<p>商品名</p>. <%= @item.name %>
+<p>商品説明</p>. <%= @item.introduction %>
+<p>ジャンル</p>. <%= @item.genre_id %>
+<p>税込価格<br>（税抜価格）</p>. <%= @item.price.to_i*1.8 %>(<%= @item.price %>)
+<p>販売ステータス</p>   <%= @item.is_status %>
+
+<%= link_to "編集する", edit_admin_item_path %>

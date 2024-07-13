@@ -14,9 +14,18 @@ class Public::CustomersController < ApplicationController
       render_to :edit
     end
   end
+  
+  def confirm
+  end
+  
+  def withdraw
+    current_customer.update(is_active: false)
+    reset_session
+    redirect_to root_path
+  end
   private
   
   def customer_params
-    params.require(:customer).permit(:first_name, :last_name, :first_name_kana, :last_name_kana, :postal_code, :address, :telephone_number, :email, :password, :password_confirmation, :is_active)
+    params.require(:customer).permit(:first_name, :last_name, :first_name_kana, :last_name_kane, :postal_code, :address, :telephone_number, :email, :password, :password_confirmation, :is_active)
   end
 end

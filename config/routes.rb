@@ -43,7 +43,7 @@ Rails.application.routes.draw do
   end
   
   namespace :admin do
-    resources :items, only: [:index, :new, :create, :show, :edit, :update]
+    resources :items, only: [:index, :new, :create, :show, :edit, :update, :destroy]
   end
   
   namespace :admin do
@@ -59,7 +59,7 @@ Rails.application.routes.draw do
   end
   
   namespace :admin do
-    resources :genres, omly: [:create, :index, :edit, :update]
+    resources :genres, omly: [:create, :index, :edit, :update, :destroy]
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
