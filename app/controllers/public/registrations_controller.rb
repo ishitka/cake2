@@ -11,13 +11,13 @@ class Public::RegistrationsController < Devise::RegistrationsController
 
   # POST /resource
   def create
-     @customer = Customer.new(customer_params)
-     if  @customer.save
-       redirect_to customer_path(@customer.id)
-     else
-       redirect_to new_customer_session_path
-     end
-   end
+    @customer = Customer.new(customer_params)
+    if  @customer.save
+      redirect_to customer_path(@customer.id)
+    else
+      redirect_to new_customer_session_path
+    end
+  end
 
   # GET /resource/edit
   # def edit

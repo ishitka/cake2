@@ -1,0 +1,7 @@
+<h3>商品一覧</h3>
+
+<% @items.each do |item| %>
+  <%= link_to (image_tag item.image, size:"50×50"), item_path(item.id) %></br>
+  <%= item.name %>
+  <%= item.price %>
+<% end %>
