@@ -1,1 +1,13 @@
-<h1>ようこそTOPページへ</h1>
+<p>ようこそ、ながのCAKEへ！</br>このサイトは、ケーキ販売のECサイトになります。</br>会員でない方も商品の閲覧はできますが、</br>購入には会員登録が必要になります。</p>
+
+<% @genres.each do |genre| %>
+  <%= link_to genre.name, items_path(genre_name: genre.name) %>
+<% end %>
+
+<h3>新着商品</h3>
+<% @items.each do |item| %>
+  <%= link_to (image_tag item.image, size:"50×50"), item_path(item.id) %>
+  <%= item.name %>
+  <%= item.price %>
+<% end %>
+

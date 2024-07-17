@@ -11,7 +11,11 @@ class Admin::ItemsController < ApplicationController
   end
   
   def index
-    @items = Item.all
+    if params[:name]
+      @items = Item.where(name params[:name])
+    else
+      @items = Item.all
+    end
   end
   
   def show

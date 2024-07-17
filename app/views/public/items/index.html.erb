@@ -1,5 +1,9 @@
 <h3>商品一覧</h3>
 
+<% @genres.each do |genre| %>
+  <%= link_to genre.name, items_path(genre_name: genre.name) %>
+<% end %>
+
 <% @items.each do |item| %>
   <%= link_to (image_tag item.image, size:"50×50"), item_path(item.id) %></br>
   <%= item.name %>
